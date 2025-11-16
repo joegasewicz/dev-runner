@@ -5,9 +5,9 @@ from colorama import Fore, Style
 
 class CustomFormatter(logging.Formatter):
     _datefmt = "%Y-%m-%d %H:%M:%S"
-    error_format = f"{Fore.RED}%(message)s{Style.RESET_ALL}"
+    error_format = f"{Fore.RED}✖ [dev-runner] %(message)s{Style.RESET_ALL}"
     debug_format = f"{Fore.BLUE}[dev-runner] %(message)s{Style.RESET_ALL}"
-    info_format = f"{Fore.GREEN}[dev-runner %(asctime)s] %(message)s{Style.RESET_ALL}"
+    info_format = f"{Fore.GREEN}✔ [dev-runner %(asctime)s] %(message)s{Style.RESET_ALL}"
 
     def __init__(self):
         super().__init__(fmt="%(levelno)d: %(msg)s", datefmt=None, style="%")

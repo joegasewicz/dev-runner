@@ -20,10 +20,19 @@ class FileHandler(FileSystemEventHandler):
                 "--strict",
                 self.file,
             ])
+            std_info = result[0]
+            std_error = result[1]
 
-            log.info(f"stdout: {result[0]}")
-            log.info(f"stderr: {result[1]}")
-            log.info(f"exit status: {result[2]}")
+            std_info = f"mypi: {std_info}"
+            std_error = f"mypi: {std_error}"
+
+
+            if std_error:
+                log.error(std_error)
+            elif "error:" in std_info:
+                log.error(std_info)
+            else:
+                log.info(std_info)
 
 
 class DevRunner:
@@ -34,7 +43,26 @@ class DevRunner:
         self.file_handler = FileHandler(path=self.path, file=self.file)
         log.info("Starting dev-runner..")
 
+    def run(self):
+        result = api.run([
+            "--strict",
+            self.file,
+        ])
+        std_info = result[0]
+        std_error = result[1]
+
+        if std_error:
+            std_error = f"[mypy]: {std_error}"
+            log.error(std_error)
+        elif "error:" in std_info:
+            std_info = f"[mypy]: {std_info}"
+            log.error(std_info)
+        else:
+            std_info = f"[mypy]: {std_info}"
+            log.info(std_info)
+
     def watch(self):
+        self.run()
         observer = Observer()
         observer.schedule(self.file_handler, self.path, recursive=True)
         observer.start()

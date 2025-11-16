@@ -1,3 +1,3 @@
 
-def main() -> list:
+def main() -> None:
     print("Started main function...")

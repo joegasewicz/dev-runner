@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="code-spy",
-    version="0.1.0",
+    version="0.2.0",
     description="Watches for file changes & runs tasks against your Python code.",
     packages=["code_spy"],
     py_modules=["code_spy"],

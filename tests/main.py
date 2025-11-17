@@ -1,8 +1,12 @@
 from bobtail import BobTail, AbstractRoute, Request, Response
 from bobtail_logger import BobtailLogger
 
-from code_spy import CodeSpy, MyPyTask, DevServerTask
-
+from code_spy import (
+    CodeSpy,
+    MyPyTask,
+    DevServerTask,
+    PylintTask,
+)
 
 from tests.routes import HomeRoute
 
@@ -18,6 +22,7 @@ if __name__ == "__main__":
         path=".",
         tasks=[
             MyPyTask(path="routes", mypy_file="mypy.ini"),
+            PylintTask(path="routes", rcfile=".pylintrc"),
             DevServerTask(wsgi_app=bobtail),
         ]
     )

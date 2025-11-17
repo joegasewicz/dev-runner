@@ -13,6 +13,8 @@ setup(
     install_requires=[
         "watchdog",
         "colorama"
+        "mypy",
+        "pylint",
     ],
     classifiers=[
         "Programming Language :: Python :: 3.10",

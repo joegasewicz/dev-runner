@@ -11,6 +11,7 @@ class MyPyTask(BaseTask):
         self.mypy_file = mypy_file
 
     def run(self):
+
         result = api.run([
             "--strict",
             "--config-file",
@@ -29,3 +30,6 @@ class MyPyTask(BaseTask):
         else:
             std_info = f"[mypy]: {std_info}"
             log.info(std_info)
+
+    def stop(self) -> None:
+        pass

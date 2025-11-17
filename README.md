@@ -20,7 +20,11 @@ from code_spy import (
 
 
 if __name__ == "__main__":
+    
+    # Create an instance of a WSGI application
     flask = Flask(__name__)
+    
+    # Pass the code spy shipped tasks to the `tasks` kwarg:
     cs = CodeSpy(
         path=".",
         tasks=[
@@ -29,6 +33,8 @@ if __name__ == "__main__":
             PylintTask(path="routes", rcfile=".pylintrc"),
         ]
     )
+    
+    # Now call `watch`, that's it!
     cs.watch()
 ```
 

@@ -11,18 +11,18 @@ Watches for file changes & runs tasks against your Python code.
 
 ```python
 from flask import Flask
-from dev_runner import CodeSpy, MyPyTask, DevServerTask
+from code_spy import CodeSpy, MyPyTask, DevServerTask
 
 if __name__ == "__main__":
     flask = Flask(__name__)
-    dr = CodeSpy(
+    cs = CodeSpy(
         path=".",
         tasks=[
             MyPyTask(path="routes", mypy_file="mypy.ini"),
             DevServerTask(wsgi_app=flask),
         ]
     )
-    dr.watch()
+    cs.watch()
 ```
 
 ### Tasks

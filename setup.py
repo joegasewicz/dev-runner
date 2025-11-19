@@ -8,7 +8,7 @@ setup(
     name="code-spy",
     version=__version__,
     description="Watches for file changes & runs tasks against your Python code.",
-    packages=["code_spy"],
+    packages=["code_spy", "code_spy.tasks"],
     py_modules=["code_spy"],
     install_requires=[
         "watchdog",

@@ -3,4 +3,6 @@ def test_something():
 
 
 def test_fails():
-    assert 1 == 1
+    hello = 1
+    goodbye = 2
+    assert hello != goodbye

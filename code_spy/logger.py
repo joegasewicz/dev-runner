@@ -6,6 +6,9 @@ from code_spy._version import __version__
 
 # Override 3rd party logging
 logging.getLogger("fsevents").setLevel(logging.WARNING)
+# logging.getLogger("pylint").setLevel(logging.WARNING)
+logging.getLogger("pytest").setLevel(logging.WARNING)
+logging.getLogger("mypy").setLevel(logging.WARNING)
 
 
 class CustomFormatter(logging.Formatter):

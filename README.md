@@ -1,6 +1,6 @@
 # Code Spy
 
-Python development tool that watches for file changes & runs tasks against your Python code.
+Python developer tool that watches for file changes & runs tasks against your Python code.
 
 ![Output](examples/out.png)
 
